@@ -3,10 +3,10 @@ import paramiko
 host = input('Enter the host: ')
 port = input('Enter the port (default is 22): ') or 22
 username = input('Enter the username: ')
-
+password_file = input('Enter the path to the password list file: ')
 attempts = 0
 
-with open("ssh-common-password.txt") as password_list:
+with open(password_file) as password_list:
     for password in password_list:
         password = password.strip("\n")
         ssh = paramiko.SSHClient()
